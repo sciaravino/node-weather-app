@@ -49,8 +49,6 @@ app.get('/weather', (req, res) => {
             error: 'You must provide an address'
         })
     }
-
-    console.log(req.query.address)
   
     geocode(req.query.address, (error, { lat, long, location } = {}) => {
         if (error) {
@@ -74,9 +72,6 @@ app.get('/weather', (req, res) => {
                 location,
                 address: req.query.address
             })
-
-            console.log(location)
-            console.log(forecastData)
         })
     })
 
@@ -109,5 +104,5 @@ app.get('*', (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log('server is up on port' + port)
+    console.log('server is up on port ' + port)
 })
